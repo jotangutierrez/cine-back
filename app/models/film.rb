@@ -9,8 +9,9 @@ class Film < ApplicationRecord
 
   def as_json(options = {})
     h = super(options)
-    if options[:available_seats_for]
-      h[:available_seats] = 10 - reservations.today.count
+    if options[:available_seats_for].present?
+      occupied = reservations.where(reservation_date: options[:available_seats_for]).count
+      h[:available_seats] = 10 - occupied
     end
     h
   end
