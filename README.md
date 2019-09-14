@@ -1,24 +1,45 @@
-# README
+# Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> PlaceIt Backend
 
-Things you may want to cover:
+## Install
 
-* Ruby version
+### Clone the repository
 
-* System dependencies
+```shell
+git clone https://github.com/jotangutierrez/cine-back.git
+cd cine-back
+```
 
-* Configuration
+### Check your Ruby version
 
-* Database creation
+```shell
+ruby -v
+```
 
-* Database initialization
+The ouput should start with something like `ruby 2.5.5`
 
-* How to run the test suite
+If not, install the right ruby version using [rvm](https://rvm.io/rvm/install) (it could take a while):
 
-* Services (job queues, cache servers, search engines, etc.)
+```shell
+rvm install 2.5.5
+```
 
-* Deployment instructions
+### Install dependencies
 
-* ...
+Using [Bundler](https://github.com/bundler/bundler)
+```shell
+bundle install
+```
+
+### Initialize the database
+
+```shell
+rails db:create db:migrate db:seed
+```
+
+### Go!
+
+```shell
+rails s
+```
