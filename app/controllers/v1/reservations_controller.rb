@@ -3,7 +3,14 @@ class V1::ReservationsController < ApplicationController
 
   # GET /reservations
   def index
-    @reservations = Reservation.all
+    if params['start_date']. present? and params['end_date']. present?
+      @reservations = Reservation.where("reservation_date between ? and ?",
+                                        params['start_date'],
+                                        params['end_date'])
+    else
+      @reservations = Reservation.all
+    end
+
 
     render json: @reservations
   end
